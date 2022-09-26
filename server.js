@@ -1,5 +1,12 @@
-const express =require('express') //import express framework
-const products =require('./data/products')
+// const express =require('express') //import express framework
+// const dotenv= require('dotenv')
+// const products =require('./data/products')
+
+import express from 'express'
+import dotenv from 'dotenv'
+import products from './data/products.js' // you have to put the extension .js
+
+dotenv.config()
 
 const app= express() //put all method inside a variable
 
@@ -21,5 +28,6 @@ function getProductHandler(req,res) {
     res.json(product)
 }
 
+const PORT = process.env.PORT || 5000
 
-app.listen(5000, console.log('Server running on port 5000'))
+app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`))

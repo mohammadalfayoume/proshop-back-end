@@ -1,0 +1,24 @@
+{
+  "name": "proshop-back-end",
+  "version": "1.0.0",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadalfayoume/proshop-back-end.git"
+  },
+  "keywords": [],
+  "author": "Mohammad Alfayoume",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammadalfayoume/proshop-back-end/issues"
+  },
+  "homepage": "https://github.com/mohammadalfayoume/proshop-back-end#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}

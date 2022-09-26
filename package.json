@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
-    "client": "npm start --prefix proshop-front-end",
+    "client": "npm start --prefix ../proshop-front-end",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {

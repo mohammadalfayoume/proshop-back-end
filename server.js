@@ -6,7 +6,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
 import connectDB from './config/db.js'
-import products from './data/products.js' // you have to put the extension .js
+import productRoutes from './routes/productRoutes.js' // you have to put the extension .js
 
 dotenv.config()
 
@@ -14,23 +14,22 @@ connectDB() //connect our server with mongoDB
 
 const app = express() //put all method inside a variable
 
-app.get('/', testHandler)
-app.get('/api/products', getProductsHandler)
-app.get('/api/products/:id', getProductHandler)
+// example on middleware:
+// app.use((req,res,next)=>{
+// 	console.log('Hello from the middle of request')
+// next()
+// })
+// each time you make a request the middleware function will excecute and next() mean continue with request
 
 // http://localhost:5000/
-function testHandler(req, res) {
+app.get('/', (req, res) => {
   res.send('API is running...')
-}
-// http://localhost:5000/api/products
-function getProductsHandler(req, res) {
-  res.json(products) //because the products are a JS array of objs, it's not actual json contents, the res.send() or res.json(), it is going to convert it to the json content type
-}
-// http://localhost:5000/api/products/:id
-function getProductHandler(req, res) {
-  const product = products.find((p) => p._id === req.params.id)
-  res.json(product)
-}
+})
+
+app.use('/api/products', productRoutes)
+
+//error middleware
+
 
 const PORT = process.env.PORT || 5000
 
@@ -40,3 +39,6 @@ app.listen(
     `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
   )
 )
+
+// 200 status it's Ok
+// 500 status / server error

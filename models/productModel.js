@@ -13,7 +13,7 @@ const reviewSchema = mongoose.Schema(
 
 const productSchema = mongoose.Schema(
   {
-    user: {
+    user: { // this user id reference to another object based on id
       //it links between user and products
       type: mongoose.Schema.Types.ObjectId,
       required: true,

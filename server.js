@@ -44,5 +44,6 @@ app.listen(
 )
 
 // 200 status => it's Ok
-// 500 status => server error
+// 401 status => not authorized
 // 404 status => page not found
+// 500 status => server error
